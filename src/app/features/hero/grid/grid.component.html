@@ -1,0 +1,13 @@
+<div class="grid-container" #gridContainer>
+    @for (row of rows; track row) {
+        <div class="grid-row">
+        @for (col of cols; track col) {
+            <div 
+                class="cell" 
+                [style.width.px]="cellSize" 
+                [style.height.px]="cellSize">
+            </div>
+        }
+        </div>
+    }
+</div>

@@ -1,0 +1,42 @@
+button[customButton] {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  mat-icon {
+    font-size: 18px;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+
+button[customButton].hollow {
+  background-color: #1C1C26;
+  border: 1px solid #313139;
+  color: #fff;
+}
+
+button[customButton].filled {
+  background-color: #fff;
+  color: #161616;
+  font-weight: 600;
+}
+
+button[customButton].gradient {
+  background-color: #1C1C26;
+  background: linear-gradient(125deg, color-mix(in srgb, white 15%, #1C1C26) 0%, #1C1C26 70%) padding-box,
+              linear-gradient(to bottom, color-mix(in srgb, white 25%, #1C1C26) 0%, #1C1C26 50%) border-box;
+  border: 1px solid transparent;
+  color: #fff;
+}

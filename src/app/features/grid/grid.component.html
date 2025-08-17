@@ -1,0 +1,10 @@
+<div class="grid-container" #gridContainer
+     [style.gridTemplateColumns]="'repeat(' + (cols + 5) + ', ' + cellSize + 'px)'">
+    @for (cell of cells; track cell) {
+        <div 
+            class="cell" 
+            [style.width.px]="cellSize" 
+            [style.height.px]="cellSize">
+        </div>
+    }
+</div>
