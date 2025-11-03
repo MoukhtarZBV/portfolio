@@ -39,3 +39,54 @@ body {
   background-color: #121212;
   font-family: "Jost", sans-serif;
 }
+
+
+
+
+@keyframes fadeFromBottom {
+    0% {
+        transform: translateY(65px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutToTop {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-60px);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-from-bottom {
+    // animation: fadeFromRight 0.2s ease-out 0.1s 1 normal forwards;
+    // animation: fadeFromRight 0.8s ease-out 1 normal forwards;
+    animation: fadeFromBottom 0.5s cubic-bezier(0.17,0.33,0.25,1.02) 0.4s forwards;
+}
+
+.fade-out-to-top {
+    // animation: fadeFromRight 0.2s ease-out 0.1s 1 normal forwards;
+    // animation: fadeFromRight 0.8s ease-out 1 normal forwards;
+    animation: fadeOutToTop 0.5s cubic-bezier(0.17,0.33,0.25,1.02) 0.4s forwards;
+}
+
+.fade-out {
+    animation: fadeIn 0.5s cubic-bezier(0.17,0.33,0.25,1.02) 0.4s forwards reverse;
+}

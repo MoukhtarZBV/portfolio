@@ -1,0 +1,47 @@
+@use 'colors' as *;
+ 
+$border-radius: 14px;
+$border-width: 1px;
+$background-color: #0F121B;
+$background-color-secondary: #12141c;
+$border-color: #222222;
+
+:host {
+    --gradient-color: rgb(66, 158, 211);
+}
+
+.card-container {
+  position: relative;
+}
+
+.card {
+  background-color: $container-background-color;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid $container-border-color;
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: all;
+}
+
+.card > * {
+  perspective: 1200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translatez(35px);
+  transition: transform 0.1s;
+}
+
+.wrapper {
+  pointer-events: all;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300%;
+  height: 300%;
+  z-index: 2;
+}

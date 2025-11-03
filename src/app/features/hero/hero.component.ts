@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, inject, OnInit, Renderer2, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, inject, Renderer2, ViewChild } from "@angular/core";
 import { GridComponent } from "./grid/grid.component";
 import { MatIconModule } from "@angular/material/icon";
+import { AnimatedCardComponent } from "@shared/components/animated-card/animated-card.component";
 
 @Component({
     selector: 'app-hero',
@@ -9,7 +10,8 @@ import { MatIconModule } from "@angular/material/icon";
     standalone: true,
     imports: [
         GridComponent,
-        MatIconModule
+        MatIconModule,
+        AnimatedCardComponent
     ]
 })
 export class HeroComponent implements AfterViewInit {
@@ -18,7 +20,6 @@ export class HeroComponent implements AfterViewInit {
     @ViewChild('myJob') myJobTextRef!: ElementRef;
     private jobTextDelay: number = 900;
     private jobTextDelayStep: number = 30;
-
 
     ngAfterViewInit(): void {
         this.setJobTextAnimation();
