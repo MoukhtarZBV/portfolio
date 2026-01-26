@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, inject, Renderer2, ViewChild } from "@angular/core";
-import { GridComponent } from "./grid/grid.component";
 import { MatIconModule } from "@angular/material/icon";
-import { AnimatedCardComponent } from "@shared/components/animated-card/animated-card.component";
+import { TitleComponent } from "@shared/components/title/title.component";
+import { SeparatorComponent } from "@shared/components/separator/separator.component";
 
 @Component({
     selector: 'app-hero',
@@ -9,9 +9,9 @@ import { AnimatedCardComponent } from "@shared/components/animated-card/animated
     styleUrl: './hero.component.scss',
     standalone: true,
     imports: [
-        GridComponent,
         MatIconModule,
-        AnimatedCardComponent
+        TitleComponent,
+        SeparatorComponent
     ]
 })
 export class HeroComponent implements AfterViewInit {

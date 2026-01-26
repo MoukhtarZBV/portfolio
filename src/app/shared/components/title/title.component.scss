@@ -1,0 +1,32 @@
+@use "colors" as *;
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  background: linear-gradient(to right, rgba(239, 218, 173, 0.8) 0%, $title-color 80%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &.small {
+    font-size: 40px !important;
+    .capital-letter {
+      font-size: 55px !important;
+    }
+  }
+  &.medium {
+    font-size: 70px !important;
+    .capital-letter {
+      font-size: 90px !important;
+    }
+  }
+  &.big {
+    font-size: 80px !important;
+    .capital-letter {
+      font-size: 100px !important;
+    }
+  }
+}

@@ -1,35 +1,35 @@
 <div class="hero-container">
-    <app-grid></app-grid>
     <div class="gradient"></div>
 
     <div class="content">
-        <app-animated-card>
-            <div class="self-card">
-                <div class="self-picture"></div>
-                <span class="self-name">Moukhtar Zoubairov</span>
-                <div class="self-tags">
-                    <div class="tag">
-                        21
-                        <mat-icon>calendar_today</mat-icon>
-                    </div>
-                    <div class="tag">
-                        France
-                        <mat-icon>place</mat-icon>
-                    </div>
+        <div class="about-me">
+            <div class="title-container">
+                <app-title title="Moukhtar"></app-title>
+                <app-separator class="separator"></app-separator>
+                <app-title title="Zoubairov" capitalPosition="below"></app-title>  
+            </div>
+
+            <div class="stats-container">
+                <div class="stat">
+                    <span class="number">2</span>
+                    <span class="title">Internships</span>
+                </div>
+                <app-separator direction="vertical"></app-separator>
+                <div class="stat">
+                    <span class="number">20+</span>
+                    <span class="title">Projects</span>
+                </div>
+                <app-separator direction="vertical"></app-separator>
+                <div class="stat">
+                    <span class="number">5+</span>
+                    <span class="title">Years of experience</span>
                 </div>
             </div>
-        </app-animated-card>
+        </div>
         
-        <div class="title-container">
-            <div class="subtitle fade-from-bottom">
-                <span class="wave-emoji">👋</span> Hi ! I'm
-            </div>
-            <div class="title fade-from-bottom">
-                Moukhtar Zoubairov,
-            </div>
-            <div class="title secondary fade-from-bottom">
-                A&nbsp;<div #myJob>Software engineer</div>
-            </div>
+        <div class="picture-container">
+            <img class="picture" src="/images/self-picture.png" alt="">
+            <div class="frame-element"></div>
         </div>
     </div>
 </div>

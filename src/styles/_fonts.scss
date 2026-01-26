@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=IM+Fell+Double+Pica&display=swap');
+// "IM Fell Double Pica" or "Cinzel"
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900');
 
 $small-font-size: 12px;
 $regular-font-size: 14px;
 $medium-font-size: 16px;
-$xlarge-font-size: 80px; 
+$large-font-size: 24px;
+$xlarge-font-size: 36px; 
+$xxlarge-font-size: 48px; 
+$xxxlarge-font-size: 60px; 
+
+* {
+    font-family: "Cinzel", serif;
+}
