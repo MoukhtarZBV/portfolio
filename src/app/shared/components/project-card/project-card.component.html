@@ -1,0 +1,19 @@
+<div class="project-container">
+    <div class="glaring-line"></div>
+    <div class="project">
+        <div class="glaring-line"></div>
+        <div class="project-content" style="--glare-color: #2b1539">
+            <div class="project-header">
+                <h3>
+                    {{ project().title }}
+                    <mat-icon svgIcon="arrow_right"></mat-icon>
+                </h3>
+                <p>
+                    <span>{{ project().location }}</span>
+                    - {{ project().subtitle }}
+                </p>
+            </div>
+            <img class="project-body" [src]="project().imageUrl" />
+        </div>
+    </div>
+</div>

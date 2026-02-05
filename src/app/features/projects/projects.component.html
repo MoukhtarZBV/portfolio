@@ -1,18 +1,15 @@
-<section class="projects-section">
-    <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            @for (project of projects; track project.title) {
-            <div class="project-card">
-                <h3 class="project-title">{{ project.title }}</h3>
-                <p class="project-description">{{ project.description }}</p>
-                <div class="technologies">
-                    @for (tech of project.technologies; track tech) {
-                    <span class="tech-badge">{{ tech }}</span>
-                    }
-                </div>
-            </div>
-            }
-        </div>
+<section id="projects-section">
+    <header>
+        <h2 class="big-title">Projects</h2>
+        <p class="subtitle">
+            I like doing any kind of work as long as it helps me
+            improve and learn. Here's some of my main projects.
+        </p>
+    </header>
+
+    <div class="projects">
+        @for (project of projects; track project.title) {
+        <app-project-card [project]="project"></app-project-card>
+        }
     </div>
 </section>

@@ -1,21 +1,36 @@
 @use 'colors' as *;
 
 .main-loading {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: $container-background-color;
-    z-index: 100;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: fixed;
+    width: 5vw;
+    aspect-ratio: 1/1;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    background: transparent;
+    outline: 30000px solid $card-background-color;
+    border: 3px solid $border-color;
+    animation: mainLoading 2.5s 1 forwards;
+    pointer-events: none;
 }
 
 .main-loading > span {
     color: grey;
     font-size: 10em;
     font-weight: 100;
+}
+
+@keyframes mainLoading {
+    0% {
+        transform: translate(-50%, -50%) translateY(-100vw) rotate(-720deg);
+    }
+    40% {
+        transform: translate(-50%, -50%) translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(0) rotate(45deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0) rotate(45deg) scale(100);
+    }
 }

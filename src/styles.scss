@@ -6,6 +6,7 @@
 @use "@angular/material" as mat;
 @use "button" as *;
 @use "fonts" as *;
+@use "colors" as *;
 
 html {
   @include mat.theme(
@@ -39,7 +40,12 @@ body {
   background-color: #121212;
 }
 
-
+section {
+    padding: 40px 10vw;
+    background-color: #080808;
+    position: relative;
+    border-bottom: 1px solid $dark-6;
+}
 
 
 @keyframes fadeFromBottom {
@@ -64,12 +70,16 @@ body {
     }
 }
 
+
 @keyframes fadeIn {
     0% {
+        filter: blur(2px);
+        transform: scale(1.1);
         opacity: 0;
-        display: none;
     }
     100% {
+        filter: blur(0px);
+        transform: scale(1);
         opacity: 1;
     }
 }

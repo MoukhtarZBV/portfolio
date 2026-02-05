@@ -29,13 +29,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid $border-color;
     position: relative;
+    animation: fadeIn 0.5s ease-out 2.3s 1 backwards;
 
     .picture {
         height: 70vh;
         width: auto;
         object-fit: contain;
+        border: 2px solid $secondary-border-color;
+        border-radius: 10px;
     }
 
     .frame-element {
@@ -63,18 +65,62 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: fit-content;
 
         .title-container {
             font-weight: lighter;
             display: flex;
             flex-direction: column;
             line-height: 1;
+            width: fit-content;
+            animation: fadeFromBottom 0.8s ease-out 1.4s 1 backwards;
+        }
+
+        .description-container {
+            animation: fadeFromBottom 0.8s ease-out 1.8s 1 backwards;
+            
+            .actions {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                margin-top: 12px;
+                align-items: center;
+                color: white;
+                font-size: $regular-font-size;
+
+                .action {
+                    padding: 4px 8px;
+                    background-color: #1f1f1f;
+                    border: 1px solid $border-color;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 6px;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: $regular-font-size;
+                    color: white;
+                    border-radius: 6px;
+
+                    mat-icon {
+                        transform: scale(0.9);
+                        color : $title-color;
+                    }
+                } 
+            }
+
+            .description {
+                color: white;
+                max-width: 100%;
+                white-space: normal;
+            }
         }
         
         .stats-container {
+            animation: fadeFromBottom 0.8s ease-out 2.2s 1 backwards;
             display: flex;
             flex-direction: row;
             gap: 20px;
+            width: fit-content;
             
             .stat {
                 display: flex;

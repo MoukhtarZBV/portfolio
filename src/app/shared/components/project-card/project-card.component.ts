@@ -1,18 +1,18 @@
 import { Component, ElementRef, inject, input, OnInit } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
-import { CustomButtonDirective } from "@shared/directives/button.directive";
 
 @Component({
-    selector: 'app-card',
-    templateUrl: './card.component.html',
-    styleUrl: './card.component.scss',
+    selector: 'app-project-card',
+    templateUrl: './project-card.component.html',
+    styleUrl: './project-card.component.scss',
     imports: [
-        MatIconModule,
-        CustomButtonDirective
+        MatIconModule
     ]
 })
-export class CardComponent implements OnInit {
+export class ProjectCardComponent implements OnInit {
     private elementRef: ElementRef = inject(ElementRef);
+
+    readonly project = input.required<Project>();
 
     readonly gradientColor = input<string>('transparent');
 

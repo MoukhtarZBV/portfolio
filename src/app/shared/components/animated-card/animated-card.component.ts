@@ -5,10 +5,13 @@ const MAX_ROTATION_ANGLE = 35;
 const MAX_BOTTOM_SHADOW = 90;
 const MAX_CHECK_INTERVAL = 14;
 
+type WrapperPosition = "relative" | "absolute";
+
 @Component({
     selector: 'app-animated-card',
     templateUrl: './animated-card.component.html',
     styleUrl: './animated-card.component.scss',
+    standalone: true,
     imports: [
         MatIconModule
     ]
@@ -16,6 +19,12 @@ const MAX_CHECK_INTERVAL = 14;
 export class AnimatedCardComponent implements AfterViewInit {
     @ViewChild('card') cardRef!: ElementRef;
     @ViewChild('wrapper') wrapperRef!: ElementRef;
+
+    readonly wrapperWidthPercentage = input<string>("300%");
+    readonly wrapperHeightPercentage = input<string>("300%");
+    readonly defaultRotation = input<string>("");
+    readonly maxRotationAngle = input<number>(MAX_ROTATION_ANGLE);
+    readonly maxBottomShadow = input<number>(MAX_BOTTOM_SHADOW);
 
     // Cursor's X and Y positions (Relative to the whole card)
     private mouseX!: number;
@@ -41,6 +50,10 @@ export class AnimatedCardComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.addEventListenerToCard();
+        this.resetRotation();
+        const wrapperHtml = this.wrapperRef.nativeElement as HTMLElement;
+        wrapperHtml.style.width = this.wrapperWidthPercentage();
+        wrapperHtml.style.height = this.wrapperHeightPercentage();
     }
 
     /**
@@ -60,13 +73,13 @@ export class AnimatedCardComponent implements AfterViewInit {
         
         // 3D rotation for both axis
         this.mouseXRelative = - (1 - (this.mouseX / this.middleX));
-        this.rotationX = this.mouseXRelative * MAX_ROTATION_ANGLE;
+        this.rotationX = this.mouseXRelative * this.maxRotationAngle();
         this.mouseYRelative = 1 - (this.mouseY / this.middleY);
-        this.rotationY = this.mouseYRelative * MAX_ROTATION_ANGLE;
+        this.rotationY = this.mouseYRelative * this.maxRotationAngle();
         
         // Shadows casted
-        this.bottomShadow = this.mouseYRelative * MAX_BOTTOM_SHADOW;
-        this.sideShadow = this.mouseXRelative * MAX_BOTTOM_SHADOW;
+        this.bottomShadow = this.mouseYRelative * this.maxBottomShadow();
+        this.sideShadow = this.mouseXRelative * this.maxBottomShadow();
         
         this.shadeOfBlack = this.mouseYRelative * 127;
         this.shadowColor = `rgb(${this.shadeOfBlack}, ${this.shadeOfBlack}, ${this.shadeOfBlack})`;
@@ -79,7 +92,7 @@ export class AnimatedCardComponent implements AfterViewInit {
      * Resets the card's rotation to make it face the screen
      */
     private resetRotation() {
-        this.cardRef.nativeElement.style = `transform: rotate3d(0, 0, 0, 0deg)`;
+        this.cardRef.nativeElement.style = `transform: perspective(800px) ${this.defaultRotation() || 'rotate3d(0, 0, 0, 0deg)'}`;
     }
 
     /**
@@ -111,14 +124,11 @@ export class AnimatedCardComponent implements AfterViewInit {
     private addEventListenerToCard() {
         const wrapper = this.wrapperRef.nativeElement as HTMLElement;
         wrapper.addEventListener("mousemove", this.throttle((event: MouseEvent) => {
-            console.log("Moved");
-            console.log(event);
             this.rotateToCursor(event);
         }, MAX_CHECK_INTERVAL));
         
         wrapper.addEventListener("mouseout", () => {
             this.resetRotation();
-            console.log("Exited");
         });
     }
 }

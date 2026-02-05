@@ -1,0 +1,159 @@
+@use 'colors' as *;
+@use 'fonts' as *;
+
+/***** Project container card *****/
+
+.project-container {    
+    padding: 8px;
+    background-color: $dark-2;
+    border-radius: 24px;
+    border: 1px solid $dark-4;
+    position: relative;
+    cursor: pointer;
+    box-shadow: rgba(34, 34, 34, 0.2) 0px 20px 20px;
+    border: 2px solid $border-color;
+}
+
+/***** Project card *****/
+
+$project-gradient: linear-gradient(190deg, $dark-4, $dark-1);
+
+.project {
+    height: 100%;
+    border-radius: 16px;
+    position: relative;
+}
+
+.project-content {
+    border-radius: 16px;
+    border: 1px solid $secondary-border-color;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    padding-bottom: 0px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    background: $project-gradient;
+}
+
+.project-content::before {
+    content: "";
+    width: 200%;
+    height: 150%;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, var(--glare-color) 0%, rgba(0,0,0,0) 100%);; 
+    filter: blur(80px);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.project-content::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, black 0%, rgba(0,0,0,0) 100%);; 
+    filter: blur(40px);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+.project-content > * {
+    z-index: 2;
+}
+
+.project-container:hover .project-content {
+    border-color: rgb(196, 196, 196);
+}
+
+.project-container:hover .project-content::before {
+    opacity: 1;
+}
+
+.glaring-line {
+    z-index: 1;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(255, 255, 255, .8) 35%, #fff 50%, rgba(255, 255, 255, .8) 65%, rgba(0, 0, 0, 0) 95%);
+    position: absolute;
+    top: 0%;
+    bottom: auto;
+    left: 0%;
+    right: 0%;
+    height: 1px;
+    margin-top: -1px;
+    border-radius: 100% 100% 0 0;
+}
+
+.project > .glaring-line {
+    right: 10%;
+    left: 10%;
+    margin-top: -1px;
+}
+
+/***** Project card content *****/
+
+.project-header > h3 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: normal;
+    font-size: $large-font-size;
+    text-shadow: white 0px 0px 1px;
+    color: white;
+}
+
+.project-header > h3 mat-icon {
+    margin-left: auto;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.1s, transform 0.25s, text-shadow 0.2s;
+}
+
+.project-container:hover .project-header > h3 mat-icon {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.project-container:hover .project-header > h3 {
+    text-shadow: white 0px 0px 4px;
+}
+
+.project-header > p {
+    margin-top: 20px;
+    font-size: $medium-font-size;
+    color: $inactive-font-color;
+    margin-bottom: 10px;
+}
+
+.project-header > p > span {
+    font-size: $medium-font-size;
+    color: white;
+}
+
+.project-body {
+    width: 90%;
+    transform: translateY(30px);
+    border-radius: 8px;
+    border: 1px solid $dark-6;
+    margin: 0px auto;
+    margin-top: auto;
+    transition: transform 0.3s;
+}
+
+.project-container:hover .project-body {
+    transform: translateY(10px);
+}

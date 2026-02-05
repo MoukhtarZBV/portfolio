@@ -9,6 +9,27 @@
                 <app-title title="Zoubairov" capitalPosition="below"></app-title>  
             </div>
 
+            <div class="description-container">
+                <div class="description">
+                    I specialise in designing meaningful user experiences, <br>backed by strong engineering and thoughtful systems.
+                </div>
+                <div class="actions">
+                    <div class="action">
+                        <mat-icon [svgIcon]="'linkedin'"></mat-icon>
+                        <span>LinkedIn</span>
+                    </div>
+                    <div class="action">
+                        <mat-icon [svgIcon]="'github'"></mat-icon>
+                        <span>GitHub</span>
+                    </div>
+                    <span> OR </span>
+                    <div class="action">
+                        <mat-icon [svgIcon]="'download'"></mat-icon>
+                        <span>Download CV</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="stats-container">
                 <div class="stat">
                     <span class="number">2</span>
@@ -26,10 +47,15 @@
                 </div>
             </div>
         </div>
-        
-        <div class="picture-container">
+
+        <app-animated-card class="picture-container" 
+            [maxRotationAngle]="10" 
+            [maxBottomShadow]="10" 
+            [wrapperWidthPercentage]="'80vw'" 
+            [wrapperHeightPercentage]="'100vh'"
+            [defaultRotation]="'rotate3d(0, 1, 0, -5deg) rotate3d(1, 0, 0, 8deg)'">
             <img class="picture" src="/images/self-picture.png" alt="">
             <div class="frame-element"></div>
-        </div>
+        </app-animated-card>
     </div>
 </div>

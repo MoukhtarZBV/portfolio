@@ -1,36 +1,40 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProjectCardComponent } from '@shared/components/project-card/project-card.component';
 
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  link?: string;
-}
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ProjectCardComponent
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
   projects: Project[] = [
     {
-      title: 'Hackathon Project',
-      description: 'Developed an innovative solution during a 48-hour hackathon, focusing on sustainability and user experience.',
-      technologies: ['Angular', 'TypeScript', 'Node.js']
+      title: 'E-Sport Tournaments',
+      location: 'Toulouse III University, 2023',
+      subtitle: 'Making tournaments organisation easier',
+      technologies: ['Angular', 'TypeScript', 'Node.js'],
+      imageUrl: "images/projects/esport-tournaments/games.png",
     },
     {
-      title: 'API Development',
-      description: 'Built a RESTful API for a mobile application with authentication, data validation, and real-time updates.',
-      technologies: ['.NET', 'C#', 'SQL Server']
+      title: 'E-Sport Tournaments',
+      location: 'Toulouse III University, 2023',
+      subtitle: 'Making tournaments organisation easier',
+      technologies: ['Angular', 'TypeScript', 'Node.js'],
+      imageUrl: "images/projects/esport-tournaments/games.png",
     },
     {
-      title: 'Web Application',
-      description: 'Full-stack web application with modern UI/UX design and responsive layout.',
-      technologies: ['React', 'Express', 'MongoDB']
-    }
+      title: 'E-Sport Tournaments',
+      location: 'Toulouse III University, 2023',
+      subtitle: 'Making tournaments organisation easier',
+      technologies: ['Angular', 'TypeScript', 'Node.js'],
+      imageUrl: "images/projects/esport-tournaments/games.png",
+    },
   ];
 }
