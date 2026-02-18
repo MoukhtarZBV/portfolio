@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from '@shared/components/project-card/project-card.component';
+import { MatIcon, MatIconModule } from "@angular/material/icon";
 
 
 @Component({
@@ -8,8 +9,9 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
   standalone: true,
   imports: [
     CommonModule,
-    ProjectCardComponent
-  ],
+    ProjectCardComponent,
+    MatIconModule
+],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
