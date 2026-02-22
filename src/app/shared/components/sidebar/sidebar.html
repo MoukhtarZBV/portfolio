@@ -1,0 +1,82 @@
+<aside class="sidebar">
+
+    <button class="collapse-btn" (click)="toggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="none" class="icon">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <div class="user-profile">
+        <div class="avatar">
+            <img src="images/self-picture.png" alt="Profile" />
+        </div>
+        <div class="user-info">
+            <div class="name">Moukhtar Zoubairov</div>
+            <div class="title">Software Engineer</div>
+        </div>
+    </div>
+
+    <nav class="nav-section">
+        <a class="nav-item" routerLink="/home" routerLinkActive="active">
+            <mat-icon svgIcon="house" class="icon"></mat-icon>
+            <span>Home</span>
+            <span class="shortcut">1</span>
+        </a>
+        <a class="nav-item" routerLink="/experience" routerLinkActive="active">
+            <mat-icon svgIcon="briefcase" class="icon"></mat-icon>
+            <span>Experience</span>
+            <span class="shortcut">2</span>
+        </a>
+        <a class="nav-item" routerLink="/projects" routerLinkActive="active">
+            <mat-icon svgIcon="cubes" class="icon"></mat-icon>
+            <span>Projects</span>
+            <span class="shortcut">3</span>
+        </a>
+        <a class="nav-item" routerLink="/stack" routerLinkActive="active">
+            <mat-icon svgIcon="layers" class="icon"></mat-icon>
+            <span>Stack</span>
+            <span class="shortcut">4</span>
+        </a>
+    </nav>
+
+    <div class="section-divider">Resources</div>
+
+    <nav class="nav-section">
+        <a class="nav-item" routerLink="/ressource1" routerLinkActive="active">
+            <svg class="icon">...</svg>
+            <span>Ressource 1</span>
+            <span class="shortcut">6</span>
+        </a>
+        <a class="nav-item" routerLink="/ressource2" routerLinkActive="active">
+            <svg class="icon">...</svg>
+            <span>Ressource 2</span>
+            <span class="shortcut">7</span>
+        </a>
+        <a class="nav-item" routerLink="/ressource3" routerLinkActive="active">
+            <svg class="icon">...</svg>
+            <span>Ressource 3</span>
+            <span class="shortcut">8</span>
+        </a>
+    </nav>
+
+    <div class="section-divider">Extras</div>
+
+    <nav class="nav-section">
+        <a class="nav-item" routerLink="/extra1" routerLinkActive="active">
+            <svg class="icon">...</svg>
+            <span>Extra 1</span>
+            <span class="shortcut">X</span>
+        </a>
+        <a class="nav-item" routerLink="/extra2" routerLinkActive="active">
+            <svg class="icon">...</svg>
+            <span>Extra 2</span>
+            <span class="shortcut">Y</span>
+        </a>
+        <a class="nav-item" routerLink="/extra3" routerLinkActive="active">
+            <svg class="icon">...</svg>
+            <span>Extra 3</span>
+            <span class="shortcut">Z</span>
+        </a>
+    </nav>
+</aside>

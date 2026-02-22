@@ -1,0 +1,225 @@
+@use 'variables' as *;
+
+:host {
+    width: $sidebar-width;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px $sidebar-padding-x;
+    box-sizing: border-box;
+    overflow-y: visible;
+    overflow-x: visible;
+    transition: width 0.6s $transition-smooth, padding 1s $transition-smooth;
+    border-right: 1px solid $border-subtle;
+    z-index: 100;
+    background-color: $bg-main;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &.collapsed {
+        width: $sidebar-width-collapsed;
+
+        .user-profile {
+            flex-direction: column;
+            gap: 16px;
+            align-items: normal;
+
+            .user-info {
+                display: none;
+                opacity: 0;
+            }
+
+            .avatar {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        .section-divider {
+            opacity: 0;
+            margin: 12px 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .nav-item {
+            justify-content: center;
+            padding: 12px;
+            gap: 0px;
+
+            span, .shortcut {
+                display: none;
+            }
+
+            .icon {
+                margin: 0;
+            }
+        }
+    }
+}
+
+:host.collapsed .collapse-btn {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.collapse-btn {
+    --size: 28px;
+    background: $bg-main;
+    border: 1px solid $border-light;
+    color: $text-body;
+    cursor: pointer;
+    padding: 0;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 43px;
+    right: calc(0px - var(--size)/2);
+    transform: translateY(-50%);
+    z-index: 101;
+    transition: transform $transition-base, color $transition-fast, border-color $transition-fast;
+
+    .icon {
+        width: 14px;
+        height: 14px;
+    }
+    
+    &:hover {
+        color: $text-primary;
+        border-color: $border-hover;
+    }
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    position: relative;
+    padding: 0 8px;
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: $border-light;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 1px solid $border-light;
+        transition: width $transition-medium, height $transition-medium;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    .user-info {
+        flex: 1;
+        white-space: nowrap;
+        max-width: 150px;
+        opacity: 1;
+        transition: opacity $transition-medium, max-width $transition-base;
+
+        .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: $text-primary;
+        }
+
+        .title {
+            font-size: 12px;
+            color: $text-body;
+        }
+    }
+}
+
+.section-divider {
+    font-size: 12px;
+    color: $text-darker;
+    margin: 24px 0 8px 8px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity $transition-medium, margin $transition-medium, height $transition-medium;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: $text-body;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    outline: 0px solid $border-subtle;
+    transition: all $transition-fast, padding $transition-base, outline 0s;
+
+    span {
+        white-space: nowrap;
+        opacity: 1;
+        max-width: 100px;
+        transition: opacity $transition-medium, max-width $transition-base;
+    }
+
+    .icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+
+    .shortcut {
+        margin-left: auto;
+        font-size: 11px;
+        color: $text-placeholder;
+        border: 1px solid $border-light;
+        border-radius: 4px;
+        padding: 2px 6px;
+        min-width: 12px;
+        text-align: center;
+        white-space: nowrap;
+        opacity: 1;
+        max-width: 50px;
+        transition: color $transition-medium, opacity $transition-medium, max-width $transition-base;
+    }
+
+    &:hover {
+        background-color: $bg-overlay-light;
+        color: $text-primary;
+        outline-width: 1px;
+
+        .shortcut {
+            color: $text-primary;
+        }
+    }
+
+    &.active {
+        background-color: $bg-active;
+        color: $text-primary;
+        outline-width: 1px;
+
+        .shortcut {
+            color: $text-primary;
+        }
+    }
+}

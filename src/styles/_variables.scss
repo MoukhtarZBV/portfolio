@@ -1,3 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
-@use './colors' as *;
-@use './fonts' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/***************/
+/* Backgrounds */
+/***************/
+
+$bg-main: #121212;
+$bg-card: #141414;
+$bg-card-hover: #1a1a1a;
+$bg-active: #222;
+$bg-tag: #262626;
+
+$bg-overlay-light: #161616;
+$bg-overlay-lighter: rgba(255, 255, 255, 0.04);
+$bg-overlay-lightest: rgba(255, 255, 255, 0.02);
+
+
+/***********/
+/* Borders */
+/***********/
+
+$border-subtle: #2a2a2a;
+$border-light: #333;
+$border-hover: #444;
+$border-focus: #666;
+
+
+/***************/
+/* Text colors */
+/***************/
+
+$text-primary: #ffffff;
+$text-secondary: #eeeeee;
+$text-muted: #cccccc;
+$text-body: #888888;
+$text-body-dark: #777777;
+$text-darker: #666666;
+$text-placeholder: #555555;
+
+
+/**********************/
+/* Layout and sidebar */
+/**********************/
+
+$sidebar-width: 260px;
+$sidebar-width-collapsed: 80px;
+$sidebar-padding-x: 16px;
+
+
+/***************/
+/* Transitions */
+/***************/
+
+$transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+$transition-base: 0.4s ease;
+$transition-medium: 0.3s ease;
+$transition-fast: 0.2s ease;
