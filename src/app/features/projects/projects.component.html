@@ -1,0 +1,23 @@
+<section id="projects-section">
+    <header>
+        <h2 class="big-title">Projects</h2>
+        <p class="subtitle">
+            I like doing any kind of work as long as it helps me
+            improve and learn. Here's some of my main projects.
+        </p>
+    </header>
+
+    <div class="carrousel">
+    <button>
+        <mat-icon svgIcon="arrow_right"></mat-icon>
+    </button>
+    <div class="projects">
+        @for (project of projects; track project.title) {
+        <app-project-card [project]="project"></app-project-card>
+        }
+    </div>
+    <button>
+        <mat-icon svgIcon="arrow_right"></mat-icon>
+    </button>
+    </div>
+</section>

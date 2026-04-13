@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 button[customButton] {
   display: flex;
   flex-direction: row;
@@ -7,7 +9,6 @@ button[customButton] {
   padding: 8px 10px;
   border-radius: 8px;
   border: none;
-  transition: all 0.2s ease;
   cursor: pointer;
   
   &:hover {
@@ -21,8 +22,8 @@ button[customButton] {
   }
 }
 
-button[customButton].hollow {
-  background-color: #1C1C26;
+button[customButton].normal {
+  background-color: $bg-button;
   border: 1px solid #313139;
   color: #fff;
 }

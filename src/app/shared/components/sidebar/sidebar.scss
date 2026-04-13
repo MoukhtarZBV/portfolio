@@ -21,6 +21,12 @@
         display: none;
     }
 
+    &:not(.collapsed) {
+        .user-info {
+            animation: 0.5s fadeIn forwards;
+        }
+    }
+
     &.collapsed {
         width: $sidebar-width-collapsed;
 
@@ -203,7 +209,7 @@
         transition: color $transition-medium, opacity $transition-medium, max-width $transition-base;
     }
 
-    &:hover {
+    &:hover, &:focus {
         background-color: $bg-overlay-light;
         color: $text-primary;
         outline-width: 1px;

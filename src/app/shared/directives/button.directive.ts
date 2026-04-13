@@ -1,30 +1,19 @@
 import { Directive, HostBinding, Input, OnInit } from "@angular/core";
 
-export type ButtonTheme = 'hollow' | 'filled' | 'gradient';
+export type ButtonTheme = 'normal' | 'filled' | 'gradient';
 
 @Directive({
     selector: '[customButton]'
 })
-export class CustomButtonDirective implements OnInit {
-    private _theme: ButtonTheme = 'hollow';
+export class CustomButtonDirective {
+    private _theme: ButtonTheme = 'normal';
 
-    @HostBinding('class.hollow') isHollow = false;
-    @HostBinding('class.filled') isFilled = false;
-    @HostBinding('class.gradient') isGradient = false;
+    @HostBinding('class.normal') isNormal = this._theme === 'normal';
+    @HostBinding('class.filled') isFilled = this._theme === 'filled';
+    @HostBinding('class.gradient') isGradient = this._theme === 'gradient';
 
     @Input()
     set theme(value: ButtonTheme) {
         this._theme = value;
-        this.updateThemeClasses();
-    }
-
-    private updateThemeClasses() {
-        this.isHollow = this._theme === 'hollow';
-        this.isFilled = this._theme === 'filled';
-        this.isGradient = this._theme === 'gradient';
-    }
-
-    ngOnInit(): void {
-        this.updateThemeClasses();
     }
 }
